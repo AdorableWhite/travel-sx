@@ -1,5 +1,8 @@
 FROM node:20-alpine AS build
 WORKDIR /app
+# Configure npm mirror for faster downloads in China
+RUN npm config set registry https://registry.npmmirror.com
+
 COPY package*.json ./
 RUN npm install
 COPY . .
