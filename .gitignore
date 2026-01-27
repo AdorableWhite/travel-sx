@@ -1,7 +1,8 @@
 # IDEs
 .idea/
 .vscode/
-.cursor/
+# .cursor/  <-- Commented out to allow rules
+
 *.swp
 *.DS_Store
 .DS_Store
