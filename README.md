@@ -70,7 +70,19 @@ docker-compose up --build
 2.  安装依赖: `npm install`。
 3.  启动开发服务器: `npm run dev`。
 
+## 推荐开发工具 (MCP Servers)
+
+本项目推荐使用以下 MCP Server 以增强 AI 辅助开发能力：
+
+*   **GitHub**: 仓库管理 (`@modelcontextprotocol/server-github`)
+*   **Brave Search**: 网络搜索 (`@modelcontextprotocol/server-brave-search`)
+*   **Fetch**: 网页内容抓取 (`@modelcontextprotocol/server-fetch`)
+*   **PostgreSQL**: 数据库操作 (`@modelcontextprotocol/server-postgres`)
+*   **Memory**: 记忆增强 (`@modelcontextprotocol/server-memory`)
+
 ## 更新日志
+- **2026-01-27**: 更新文档。
+    - 添加推荐的 MCP Servers 列表。
 - **2026-01-27**: 初始化项目。
     -后端采用 Spring Boot 多模块架构。
     - 前端初始化 Vue 3 + Vite。
