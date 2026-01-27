@@ -72,17 +72,80 @@ docker-compose up --build
 
 ## 推荐开发工具 (MCP Servers)
 
-本项目推荐使用以下 MCP Server 以增强 AI 辅助开发能力：
+本项目推荐配置以下 MCP Server，以增强 AI 在开发过程中的能力。
 
-*   **GitHub**: 仓库管理 (`@modelcontextprotocol/server-github`)
-*   **Brave Search**: 网络搜索 (`@modelcontextprotocol/server-brave-search`)
-*   **Fetch**: 网页内容抓取 (`@modelcontextprotocol/server-fetch`)
-*   **PostgreSQL**: 数据库操作 (`@modelcontextprotocol/server-postgres`)
-*   **Memory**: 记忆增强 (`@modelcontextprotocol/server-memory`)
+### 1. 仓库管理 (GitHub)
+*   **包名**: `@modelcontextprotocol/server-github`
+*   **用途**: 允许 AI 直接访问 GitHub API，执行搜索代码、读取文件、管理 Issue/PR、创建分支等操作。
+*   **必要性**: 使得代码审查和版本管理更自动化。
+
+### 2. 网络搜索 (Brave Search)
+*   **包名**: `@modelcontextprotocol/server-brave-search`
+*   **用途**: 允许 AI 进行实时网络搜索，获取最新的技术文档、库版本信息和解决方案。
+*   **必要性**: 解决 AI 训练数据截止导致的知识过时问题。
+
+### 3. 网页抓取 (Fetch)
+*   **包名**: `@modelcontextprotocol/server-fetch`
+*   **用途**: 将指定的 URL 网页内容抓取并转换为 Markdown 格式供 AI 阅读。
+*   **必要性**: 方便 AI 快速阅读和分析第三方文档或教程。
+
+### 4. 数据库操作 (PostgreSQL)
+*   **包名**: `@modelcontextprotocol/server-postgres`
+*   **用途**: 允许 AI 连接数据库，查看表结构 (Schema)、执行 SQL 查询、进行数据分析。
+*   **必要性**: 在后端开发中快速调试数据库和验证数据。
+
+### 5. 记忆增强 (Memory)
+*   **包名**: `@modelcontextprotocol/server-memory`
+*   **用途**: 基于知识图谱的持久化记忆，让 AI 记住你的编码偏好、项目背景和特定指令。
+*   **必要性**: 提高长期协作的连贯性。
+
+### 参考配置 (cursor_mcp_config.json)
+
+以下是用于 Cursor 设置的 JSON 配置参考（JSON 格式不支持注释，使用时请移除 `//` 注释）：
+
+```jsonc
+{
+  // 1. GitHub: 用于管理远程仓库
+  "github": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-github"],
+    "env": {
+      "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>" // 必填: 你的 GitHub Token
+    }
+  },
+  // 2. Brave Search: 用于联网搜索最新技术
+  "brave-search": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+    "env": {
+      "BRAVE_API_KEY": "<YOUR_API_KEY>" // 必填: 你的 Brave Search API Key
+    }
+  },
+  // 3. Fetch: 用于抓取网页文档
+  "fetch": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-fetch"]
+  },
+  // 4. PostgreSQL: 用于数据库调试
+  "postgres": {
+    "command": "npx",
+    "args": [
+      "-y", 
+      "@modelcontextprotocol/server-postgres", 
+      "postgres://username:password@localhost:5432/dbname" // 必填: 替换为实际数据库连接串
+    ]
+  },
+  // 5. Memory: 用于记住项目上下文
+  "memory": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-memory"]
+  }
+}
+```
 
 ## 更新日志
-- **2026-01-27**: 更新文档。
-    - 添加推荐的 MCP Servers 列表。
+- **2026-01-27**: 完善文档。
+    - 详细说明 MCP Server 的用途及配置示例。
 - **2026-01-27**: 初始化项目。
     -后端采用 Spring Boot 多模块架构。
     - 前端初始化 Vue 3 + Vite。
