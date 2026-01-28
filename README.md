@@ -1,7 +1,11 @@
 # Travel SX
 
 ## 项目简介
-这是一个基于 **Spring Boot 3** (后端) 和 **Vue 3** (前端) 的前后端分离项目，支持 Docker 容器化部署。
+这是一个基于 **Spring Boot 3** (后端) 和 **Uni-app** (前端，多端) 的前后端分离项目，支持 Docker 容器化部署。
+
+## 产品与需求文档
+
+- `docs/PRD-Shanxi-Explorer.md`：山西全域智慧旅游平台（晋游记 / Shanxi Explorer）PRD。
 
 ## 技术栈
 
@@ -20,7 +24,7 @@
 *   Lombok
 
 ### 前端 (Frontend)
-*   Vue 3
+*   Uni-app（Vue）
 *   Vite
 *   JavaScript
 
@@ -38,7 +42,7 @@ travel-sx/
 │   ├── infrastructure/     # 基础设施/DAO层
 │   ├── common/             # 通用层
 │   └── Dockerfile          # 后端构建镜像
-├── frontend/               # 前端工程根目录
+├── frontend/               # 前端工程根目录（Uni-app）
 │   └── Dockerfile          # 前端构建镜像
 ├── docker-compose.yml      # 容器编排文件
 └── README.md               # 项目说明文档
@@ -64,11 +68,15 @@ docker-compose up --build
 2.  确保配置好本地 MySQL 数据库（需修改 `infrastructure` 模块中的配置文件，目前尚未生成 `application.yml`）。
 3.  运行 `mvn clean install`。
 4.  启动 `api` 模块下的 `BackendApplication`。
+    - 本地联调可用 H2：`./mvnw -pl api -am spring-boot:run -Dspring-boot.run.profiles=local -Dspring-boot.run.main-class=com.example.backend.BackendApplication`
 
 #### 前端
 1.  进入 `frontend` 目录。
 2.  安装依赖: `npm install`。
-3.  启动开发服务器: `npm run dev`。
+3.  可选：配置接口地址（默认 `http://localhost:8080`）。
+    - 复制 `frontend/.env.example` 为 `frontend/.env` 并按需修改 `VUE_APP_API_BASE`。
+4.  启动 H5 开发服务器: `npm run dev`。
+5.  小程序构建建议使用 HBuilderX 导入 `frontend` 目录进行编译调试。
 
 ## 推荐开发工具 (MCP Servers)
 
@@ -144,6 +152,13 @@ docker-compose up --build
 ```
 
 ## 更新日志
+- **2026-01-28**: 增加本地联调配置。
+    - 新增 H2 本地 profile 与初始化数据脚本。
+- **2026-01-27**: 前端切换为 Uni-app 跨端方案。
+    - 新增 Uni-app 页面结构与基础组件。
+    - 接入首页/景点/美食/行程/社区/用户中心页面。
+- **2026-01-27**: 新增产品与需求文档。
+    - 补充“晋游记 / Shanxi Explorer”完整 PRD。
 - **2026-01-27**: 完善文档。
     - 详细说明 MCP Server 的用途及配置示例。
 - **2026-01-27**: 初始化项目。

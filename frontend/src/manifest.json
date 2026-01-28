@@ -1,0 +1,20 @@
+{
+  "name": "晋游记",
+  "appid": "__UNI__SHANXI_EXPLORER__",
+  "description": "山西全域智慧旅游平台",
+  "versionName": "0.1.0",
+  "versionCode": 100,
+  "transformPx": false,
+  "h5": {
+    "title": "晋游记",
+    "router": {
+      "mode": "hash"
+    }
+  },
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": false
+    }
+  }
+}

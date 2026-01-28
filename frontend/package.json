@@ -2,21 +2,27 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "UNI_PLATFORM=h5 vite",
+    "build": "UNI_PLATFORM=h5 vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^2.3.2",
+    "@dcloudio/uni-app-vite": "^3.0.0-4080720251210001",
+    "@dcloudio/uni-cli-i18n": "^2.0.2-4080720251210002",
+    "@dcloudio/uni-cli-shared": "^3.0.0-4080720251210001",
+    "@dcloudio/uni-components": "^3.0.0-4080720251210001",
+    "@dcloudio/uni-shared": "^3.0.0-4080720251210001",
+    "@dcloudio/vite-plugin-uni": "^3.0.0-4080720251210001",
     "axios": "^1.13.3",
-    "element-plus": "^2.13.1",
+    "semver": "^7.7.3",
     "vue": "^3.5.24",
-    "vue-router": "^4.6.4"
+    "webpack": "^5.104.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.1",
-    "vite": "^7.2.4"
+    "@vitejs/plugin-vue": "^5.2.1",
+    "sass": "^1.97.3",
+    "vite": "5.2.8"
   }
 }

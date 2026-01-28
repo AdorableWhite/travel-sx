@@ -1,0 +1,88 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "晋游记"
+      }
+    },
+    {
+      "path": "pages/search/index",
+      "style": {
+        "navigationBarTitleText": "搜索"
+      }
+    },
+    {
+      "path": "pages/attractions/index",
+      "style": {
+        "navigationBarTitleText": "三晋览胜"
+      }
+    },
+    {
+      "path": "pages/attractions/detail",
+      "style": {
+        "navigationBarTitleText": "景点详情"
+      }
+    },
+    {
+      "path": "pages/itinerary/index",
+      "style": {
+        "navigationBarTitleText": "智游山西"
+      }
+    },
+    {
+      "path": "pages/culinary/index",
+      "style": {
+        "navigationBarTitleText": "晋善晋美"
+      }
+    },
+    {
+      "path": "pages/community/index",
+      "style": {
+        "navigationBarTitleText": "古韵探秘"
+      }
+    },
+    {
+      "path": "pages/user/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#7a6f64",
+    "selectedColor": "#9a2e2e",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/attractions/index",
+        "text": "景点"
+      },
+      {
+        "pagePath": "pages/itinerary/index",
+        "text": "行程"
+      },
+      {
+        "pagePath": "pages/culinary/index",
+        "text": "美食"
+      },
+      {
+        "pagePath": "pages/community/index",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#f7f5f1",
+    "backgroundColor": "#f7f5f1"
+  }
+}
