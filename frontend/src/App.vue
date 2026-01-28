@@ -1,10 +1,22 @@
-<script setup>
+<script>
+export default {
+  onLaunch: function () {
+    console.log('App Launch')
+  },
+  onShow: function () {
+    console.log('App Show')
+  },
+  onHide: function () {
+    console.log('App Hide')
+  }
+}
 </script>
 
-<script>
-export default {};
-</script>
+<template>
+  <!-- App.vue in uni-app usually does not use template, but Vite plugin might require it -->
+</template>
 
 <style lang="scss">
-@import "./uni.scss";
+/* Global styles */
 </style>
+

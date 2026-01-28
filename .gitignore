@@ -9,3 +9,12 @@
 
 # OS
 Thumbs.db
+
+# Local Config
+.env
+*.local
+node_modules/
+dist/
+unpackage/
+.env.local
+.env.*.local

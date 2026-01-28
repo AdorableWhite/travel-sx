@@ -65,7 +65,9 @@ docker-compose up --build
 
 #### 后端
 1.  进入 `backend` 目录。
-2.  确保配置好本地 MySQL 数据库（需修改 `infrastructure` 模块中的配置文件，目前尚未生成 `application.yml`）。
+2.  配置数据库与 Redis 连接信息（不要提交敏感凭据）。
+    - 复制 `backend/api/src/main/resources/application.yml.example` 为 `application.yml`。
+    - 设置环境变量：`DB_URL`、`DB_USERNAME`、`DB_PASSWORD`、`REDIS_HOST`、`REDIS_PASSWORD`（可选：`REDIS_PORT`、`REDIS_DB`、`REDIS_TIMEOUT_MS`）。
 3.  运行 `mvn clean install`。
 4.  启动 `api` 模块下的 `BackendApplication`。
     - 本地联调可用 H2：`./mvnw -pl api -am spring-boot:run -Dspring-boot.run.profiles=local -Dspring-boot.run.main-class=com.example.backend.BackendApplication`
@@ -154,6 +156,8 @@ docker-compose up --build
 ## 更新日志
 - **2026-01-28**: 增加本地联调配置。
     - 新增 H2 本地 profile 与初始化数据脚本。
+- **2026-01-28**: 修复前端 H5 本地运行。
+    - 补充 `@dcloudio/uni-h5` 依赖，并调整 Sass `@use` 结构。
 - **2026-01-27**: 前端切换为 Uni-app 跨端方案。
     - 新增 Uni-app 页面结构与基础组件。
     - 接入首页/景点/美食/行程/社区/用户中心页面。
